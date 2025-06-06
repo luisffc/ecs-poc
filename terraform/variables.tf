@@ -28,8 +28,29 @@ variable "private_subnet_cidrs" {
   default     = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 }
 
+variable "aws_account_id" {
+  type    = string
+  default = "593793047834"
+}
+variable "cluster_name" {
+  type    = string
+  default = "demo-ecs"
+}
 variable "ecr_repositories" {
-  description = "Names of the ECR repositories to create"
-  type        = list(string)
-  default     = ["service_a", "service_b"]
+  type    = list(string)
+  default = ["service_a", "service_b"]
+}
+
+# Fargate task sizing & scale
+variable "task_cpu" {
+  type    = number
+  default = 256
+}
+variable "task_memory" {
+  type    = number
+  default = 512
+}
+variable "desired_count" {
+  type    = number
+  default = 1
 }
