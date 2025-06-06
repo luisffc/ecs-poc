@@ -22,7 +22,7 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: ./service_a
-          file:: ./service_a/Dockerfile
+          file: ./service_a/Dockerfile
           push: true
           tags: ${{steps.ecr-login.outputs.registry}}/service_a:${{ github.sha }}
 
